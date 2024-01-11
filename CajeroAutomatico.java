@@ -19,6 +19,7 @@ public class CajeroAutomatico {
             System.out.println("\nCajero Automático");
             System.out.println("1- Retirar fondos");
             System.out.println("2- Ingresar fondos");
+            System.out.println("3- Consultar movimientos");
             System.out.println("0- Salir");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
@@ -30,6 +31,7 @@ public class CajeroAutomatico {
                     if (cantidadRetiro <= saldo) {
                         saldo -= cantidadRetiro;
                         System.out.println("Ha retirado " + cantidadRetiro + "€. Saldo actual: " + saldo + "€.");
+                        registrarMovimiento("Retirada de fondos: " + cantidadRetiro + "€");
                     } else {
                         System.out.println("No se puede realizar la operación. Saldo insuficiente. Saldo actual: " + saldo + "€.");
                     }
@@ -39,6 +41,7 @@ public class CajeroAutomatico {
                     double cantidadDeposito = scanner.nextDouble();
                     saldo += cantidadDeposito;
                     System.out.println("Ha ingresado " + cantidadDeposito + "€. Saldo actual: " + saldo + "€.");
+                    registrarMovimiento("Ingreso de fondos: " + cantidadDeposito + "€");
                     break;
                 case 3:
                     // Lógica de Consulta de movimientos
