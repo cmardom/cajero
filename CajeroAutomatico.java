@@ -1,10 +1,19 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CajeroAutomatico {
+
+    private static final String MOVIMIENTOS_FILE = "movimientos.txt";
+
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         double saldo = 1000.00; // Saldo inicial
         int opcion;
+
 
         do {
             System.out.println("\nCajero Automático");
@@ -31,6 +40,10 @@ public class CajeroAutomatico {
                     saldo += cantidadDeposito;
                     System.out.println("Ha ingresado " + cantidadDeposito + "€. Saldo actual: " + saldo + "€.");
                     break;
+                case 3:
+                    // Lógica de Consulta de movimientos
+                    consultarMovimientos();
+                    break;
                 case 0: // Salir
                     System.out.println("Saliendo del sistema.");
                     break;
@@ -40,5 +53,26 @@ public class CajeroAutomatico {
         } while (opcion != 0);
 
         scanner.close();
+    }
+
+    private static void consultarMovimientos() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(MOVIMIENTOS_FILE))) {
+            System.out.println("----- Movimientos -----");
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                System.out.println(linea);
+            }
+            System.out.println("------------------------");
+        } catch (IOException e) {
+            System.out.println("Error al leer los movimientos desde el archivo.");
+        }
+    }
+
+    private static void registrarMovimiento(String movimiento) {
+        try (FileWriter writer = new FileWriter(MOVIMIENTOS_FILE, true)) {
+            writer.append(movimiento).append("\n");
+        } catch (IOException e) {
+            System.out.println("Error al registrar el movimiento en el archivo.");
+        }
     }
 }
