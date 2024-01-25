@@ -75,7 +75,7 @@ public class CajeroAutomatico {
         try (FileWriter writer = new FileWriter(MOVIMIENTOS_FILE, true)) {
             writer.append(movimiento).append("\n");
         } catch (IOException e) {
-            System.out.println("Error al registrar el movimiento en el archivo.");
+            System.out.println(" Error al registrar el movimiento en el archivo.");
         }
     }
 }
