@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="mysql-connector-odbc-noinstall-8.3">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/mysql-connector-odbc-noinstall-8.3.0-winx64" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/mysql-connector-odbc-noinstall-8.3.0-winx64" recursive="false" />
+  </library>
+</component>

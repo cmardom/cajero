@@ -1,2 +1,2 @@
-Ingreso de fondos: 20.0€
+Ingreso de fondos: 200.0€
 Retirada de fondos: 20.0€
